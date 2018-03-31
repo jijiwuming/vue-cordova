@@ -15,3 +15,7 @@
 ```powershell
 .\init.ps1
 ```
+
+#### 注意:必须在设备就绪后使用编写的插件，因为插件涉及到调用设备的接口
+
+#### 其他问题解决方案：鉴于 Cordova 不可捉摸的稳定性，建议出现如“device ready has not fired after 5 seconds”的问题后先尝试删除相应的 platform 再添加后尝试，注意终端输出
