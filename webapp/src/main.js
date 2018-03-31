@@ -5,6 +5,7 @@ import App from './App'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import router from './router'
+import NativeAPIPlugin from './plugins/NativeAPIPlugin'
 
 Vue.config.productionTip = false
 Vue.use(ElementUI)
@@ -12,10 +13,15 @@ Vue.use(ElementUI)
 /* eslint-disable no-new */
 // 注意，这里这样写后由于必须监听到deviceready事件，所以必须保障cordova.js已经引入
 if (process.env.NODE_ENV === 'production') {
-  document.addEventListener(
+  window.document.addEventListener(
     'deviceready',
     function() {
       console.log('device ready')
+      // 注意:必须在设备就绪后使用插件
+      // 这里配置使用自定义的插件
+      Vue.use(NativeAPIPlugin, {
+        platform: true
+      })
       new Vue({
         el: '#app',
         router,
