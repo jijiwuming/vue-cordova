@@ -11,18 +11,27 @@ Vue.use(ElementUI)
 
 /* eslint-disable no-new */
 // 注意，这里这样写后由于必须监听到deviceready事件，所以必须保障cordova.js已经引入
-document.addEventListener(
-  'deviceready',
-  function() {
-    console.log('device ready')
-    new Vue({
-      el: '#app',
-      router,
-      components: { App },
-      template: '<App/>'
-    })
-    // 添加splashscreen插件后需要下一句
-    // window.navigator.splashscreen.hide()
-  },
-  false
-)
+if (process.env.NODE_ENV === 'production') {
+  document.addEventListener(
+    'deviceready',
+    function() {
+      console.log('device ready')
+      new Vue({
+        el: '#app',
+        router,
+        components: { App },
+        template: '<App/>'
+      })
+      // 添加splashscreen插件后需要下一句
+      // window.navigator.splashscreen.hide()
+    },
+    false
+  )
+} else {
+  new Vue({
+    el: '#app',
+    router,
+    components: { App },
+    template: '<App/>'
+  })
+}
