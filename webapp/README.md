@@ -4,18 +4,20 @@
 
 ## Build Setup
 
-``` bash
-# install dependencies
+```bash
+# 安装依赖
 npm install
 
-# serve with hot reload at localhost:8080
-npm run dev
+# 在浏览器端运行
+# 由于引入了cordova.js并监听deviceready事件,无法直接使用npm run dev
+npm run broswer
 
-# build for production with minification
+# 在android设备上运行
+npm run android
+
+# 构建到cordova下
 npm run build
 
 # build for production and view the bundle analyzer report
 npm run build --report
 ```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
