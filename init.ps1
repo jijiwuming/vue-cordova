@@ -1,5 +1,5 @@
 cordova platform add android;
-cordova platform add broswer;
+cordova platform add browser;
 cordova plugin add cordova-plugin-camera;
 cordova plugin add cordova-plugin-x-toast;
 cordova prepare;
